@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">North ThompsonPizzariaLandingActivity</string>
+    <string name="signIn">Sign in / Create Account</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="deal">Deal of the Week</string>
+    <string name="location">Location</string>
+    <string name="menu">Menu</string>
+    <string name="companyName">North Thompson Pizzeria</string>
+    <string name="landingImage">Image</string>
+    <string name="logo">Logo</string>
+    <string name="title_activity_contact_us">ContactUs</string>
+
+    <string name="backBtn">Back</string>
+    <string name="contactTitle">Contact Us</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="review">Review</string>
+    <string name="LogoContentDescription">Company Logo</string>
+    <string name="reviewsTitle">Review</string>
+    <string name="customerReviews">Our Customer Reviews:</string>
+    <string name="viewReviews">See Reviews</string>
+
+
+    <string name="default_menu_text">Pizza</string>
+    <string name="back">Back</string>
+    <string name="sign_in">Sign In</string>
+    <string name="todo">TODO</string>
+    <string name="dealTitleText">Deal of the Week!</string>
+    <string name="discountTV">15</string>
+    <string name="smallCost">Small</string>
+    <string name="largeCost">Large</string>
+    <string name="mediumCost">Medium</string>
+    <string name="dealPizzaNameTV">Name of Pizza</string>
+    <string name="percentOffTV">% Off!</string>
+    <string name="title_activity_location">location</string>
+    <string name="locationET">Enter Your Location</string>
+
+</resources>
