@@ -2,7 +2,10 @@ package com.example.norththompsonpizzarialandingactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +14,8 @@ import java.util.Collections;
 import java.util.Random;
 
 public class DealOfTheWeek extends AppCompatActivity {
+
+    Button backBtn;
 
     ArrayList<MenuItemModel> menuArrayList = new ArrayList<>();
     ImageView pizzaImage;
@@ -28,6 +33,15 @@ public class DealOfTheWeek extends AppCompatActivity {
         smallCostTV = findViewById(R.id.dealSmallTV);
         mediumCostTV = findViewById(R.id.dealMedTV);
         largeCostTV = findViewById(R.id.dealLargeTV);
+        backBtn = findViewById(R.id.dealBackBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DealOfTheWeek.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Parse the double from the discount amount on the UI to use as a constant for further changes
         // Handle exceptions that may occur for empty string, if none calculate, if there is set Constant to 0.0
