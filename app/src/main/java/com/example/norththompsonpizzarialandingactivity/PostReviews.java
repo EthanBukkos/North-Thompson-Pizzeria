@@ -32,16 +32,6 @@ public class PostReviews extends AppCompatActivity {
         postReviewEt = findViewById(R.id.reviewEt);
         ratingBar = findViewById(R.id.reviewBar);
 
-//        Drawable prorgressDrawable = getResources().getDrawable(R.drawable.rating_full);
-//        ratingBar.setProgressDrawable(prorgressDrawable);
-//
-//        Drawable backgroundDrawable = getResources().getDrawable(R.drawable.rating_empty);
-//        ratingBar.setBackgroundDrawable(backgroundDrawable);
-//        ratingBar.setStepSize(1);
-//        ratingBar.setRating(5);
-//        ratingBar.setNumStars(5);
-
-
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

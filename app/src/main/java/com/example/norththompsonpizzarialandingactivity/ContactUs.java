@@ -40,7 +40,7 @@ public class ContactUs extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(ContactUs.this, MainActivity.class);
+                intent = new Intent(ContactUs.this, Navigation_Main.class);
                 startActivity(intent);
             }
         });

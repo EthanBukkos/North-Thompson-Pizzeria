@@ -38,7 +38,7 @@ public class DealOfTheWeek extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DealOfTheWeek.this, MainActivity.class);
+                Intent intent = new Intent(DealOfTheWeek.this, Navigation_Main.class);
                 startActivity(intent);
             }
         });
