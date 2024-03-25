@@ -1,4 +1,4 @@
-package com.example.total_page;
+package com.example.norththompsonpizzarialandingactivity;
 
 import android.content.Intent;
 import android.os.Bundle;

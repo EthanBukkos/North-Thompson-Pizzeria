@@ -1,4 +1,4 @@
-package com.example.total_page;
+package com.example.norththompsonpizzarialandingactivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

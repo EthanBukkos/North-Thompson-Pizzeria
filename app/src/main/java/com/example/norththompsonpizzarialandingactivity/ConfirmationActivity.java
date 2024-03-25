@@ -1,4 +1,4 @@
-package com.example.total_page;
+package com.example.norththompsonpizzarialandingactivity;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
