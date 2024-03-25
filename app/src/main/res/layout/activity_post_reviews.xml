@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/reviewEt"
-        android:layout_width="231dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/customerReviewEtHint"
         android:inputType="text"
@@ -23,8 +23,8 @@
 
     <TextView
         android:id="@+id/reviewTitleTv"
-        android:layout_width="215dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/reviewsTitle"
         android:textAlignment="center"
         android:textSize="25sp"
