@@ -6,63 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".CustomerReviews">
 
-    <RatingBar
-        android:layout_marginTop="10dp"
-        style="@style/CustomRatingBarStyle"
-        android:id="@+id/averageStars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rating="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172" />
-
     <TextView
         android:id="@+id/customerReviewTv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:padding="15dp"
         android:background="@drawable/review_border"
+        android:elevation="5dp"
         android:text="@string/customerReviews"
         android:textAlignment="center"
         android:textSize="35sp"
-        android:elevation="5dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintVertical_bias="0.008" />
 
     <TextView
         android:id="@+id/customerReviewTv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/review_border"
-        android:textAlignment="center"
-        android:layout_marginTop="80dp"
-        android:textSize="20sp"
         android:elevation="5dp"
+        android:padding="15dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/averageStars"
-        app:layout_constraintStart_toStartOf="@+id/averageStars"
-        app:layout_constraintTop_toBottomOf="@+id/averageStars" />
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerReviewTv1" />
 
     <TextView
         android:id="@+id/customerReviewTv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/review_border"
-        android:textAlignment="center"
-        android:layout_marginTop="40dp"
-        android:textSize="20sp"
         android:elevation="5dp"
+        android:padding="15dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/customerReviewTv2"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/customerReviewTv2"
         app:layout_constraintTop_toBottomOf="@+id/customerReviewTv2" />
 
@@ -70,32 +66,37 @@
         android:id="@+id/customerReviewTv4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/review_border"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="28dp"
-        android:textSize="20sp"
+        android:layout_marginEnd="25dp"
+        android:padding="15dp"
+        android:background="@drawable/review_border"
         android:elevation="5dp"
-        android:textAlignment="center"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/customerReviewTv3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/customerReviewTv3"
         app:layout_constraintTop_toBottomOf="@+id/customerReviewTv3" />
 
+
     <TextView
         android:id="@+id/customerReviewTv5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/review_border"
-        android:textAlignment="center"
-        android:layout_marginTop="40dp"
-        android:textSize="20sp"
         android:elevation="5dp"
+        android:padding="15dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/customerReviewTv4"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="@+id/customerReviewTv4"
         app:layout_constraintTop_toBottomOf="@+id/customerReviewTv4" />
-
 
     <ImageButton
         android:id="@+id/logoBtn"
