@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/tip_calculator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/navigation_layout"
+        android:layout_marginBottom="411dp"
+        android:orientation="vertical">
+
+
+        <SeekBar
+            android:id="@+id/tip_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="5" />
+
+
+        <TextView
+            android:id="@+id/tip_percentage_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Tip Percentage: 5%"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/total_with_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Total (with Tip): $0.00"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/navigation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+
+            <Button
+                android:id="@+id/return_to_menu_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Return to Menu" />
+
+            <Button
+                android:id="@+id/cancel_order_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancel Order" />
+
+            <Button
+                android:id="@+id/checkout_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Checkout" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
