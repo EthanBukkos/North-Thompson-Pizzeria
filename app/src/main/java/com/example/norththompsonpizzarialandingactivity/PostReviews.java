@@ -3,11 +3,13 @@ package com.example.norththompsonpizzarialandingactivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 public class PostReviews extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class PostReviews extends AppCompatActivity {
 
     Intent intent;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,16 @@ public class PostReviews extends AppCompatActivity {
         viewReviewBtn = findViewById(R.id.viewReviewBtn);
         postReviewEt = findViewById(R.id.reviewEt);
         ratingBar = findViewById(R.id.reviewBar);
+
+//        Drawable prorgressDrawable = getResources().getDrawable(R.drawable.rating_full);
+//        ratingBar.setProgressDrawable(prorgressDrawable);
+//
+//        Drawable backgroundDrawable = getResources().getDrawable(R.drawable.rating_empty);
+//        ratingBar.setBackgroundDrawable(backgroundDrawable);
+//        ratingBar.setStepSize(1);
+//        ratingBar.setRating(5);
+//        ratingBar.setNumStars(5);
+
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +55,14 @@ public class PostReviews extends AppCompatActivity {
             public void onClick(View v) {
                 intent = new Intent(PostReviews.this, CustomerReviews.class);
                 startActivity(intent);
+
+            }
+        });
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(PostReviews.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
             }
         });
 

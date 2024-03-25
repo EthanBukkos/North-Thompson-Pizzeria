@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.NorthThompsonPizzariaLandingActivity" parent="Base.Theme.NorthThompsonPizzariaLandingActivity" />
+
+    <style name="CustomRatingBarStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating_bar</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:maxHeight">36dp</item>
+
+    </style>
 </resources>

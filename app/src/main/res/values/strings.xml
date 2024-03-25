@@ -34,5 +34,6 @@
     <string name="percentOffTV">% Off!</string>
     <string name="title_activity_location">location</string>
     <string name="locationET">Enter Your Location</string>
+    <string name="customerReviewEtHint">Leave us a Review!</string>
 
 </resources>
