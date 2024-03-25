@@ -17,10 +17,7 @@ import java.util.Random;
 public class CustomerReviews extends AppCompatActivity {
 
     ImageButton logoBtn;
-    RatingBar ratingBar;
-
     TextView review2, review3, review4, review5;
-
     List<String> displayedReviews = new ArrayList<>();
 
     @Override
@@ -29,7 +26,6 @@ public class CustomerReviews extends AppCompatActivity {
         setContentView(R.layout.activity_customer_reviews);
 
         logoBtn = findViewById(R.id.logoBtn);
-        ratingBar = findViewById(R.id.averageStars);
         review2 = findViewById(R.id.customerReviewTv2);
         review3 = findViewById(R.id.customerReviewTv3);
         review4 = findViewById(R.id.customerReviewTv4);
@@ -52,13 +48,6 @@ public class CustomerReviews extends AppCompatActivity {
             }
         });
 
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast.makeText(CustomerReviews.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
 
         private void displayReviews (TextView textView, String[]reviews){

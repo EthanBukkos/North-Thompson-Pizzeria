@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="tomato_red">#ff6633</color>
+    <color name="charcoal">#36454F</color>
 </resources>
