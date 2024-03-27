@@ -15,34 +15,33 @@
             android:layout_marginTop="32dp" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/return_to_menu_button"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@id/order_review"
-            android:layout_marginTop="16dp">
+            android:layout_weight="1"
+            android:text="Return to Menu" />
 
-            <Button
-                android:id="@+id/return_to_menu_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Return to Menu" />
+        <Button
+            android:id="@+id/cancel_order_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel Order" />
 
-            <Button
-                android:id="@+id/cancel_order_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cancel Order" />
+        <Button
+            android:id="@+id/checkout_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Checkout" />
 
-            <Button
-                android:id="@+id/checkout_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Checkout" />
-
-        </LinearLayout>
+    </LinearLayout>
 
     </RelativeLayout>
