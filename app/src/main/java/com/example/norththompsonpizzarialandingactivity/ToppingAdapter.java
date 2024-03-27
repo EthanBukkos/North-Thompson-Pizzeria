@@ -1,4 +1,4 @@
-package com.ethanlogintest.order_customization;
+package com.example.norththompsonpizzarialandingactivity;
 
 import android.util.Log;
 import android.view.LayoutInflater;

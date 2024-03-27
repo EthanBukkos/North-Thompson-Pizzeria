@@ -1,4 +1,5 @@
 package com.example.norththompsonpizzarialandingactivity;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_row, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -48,12 +49,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public TextView itemName, itemPrice, itemQuantity;
         public Button removeButton;
 
+        @SuppressLint("WrongViewCast")
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemImage = itemView.findViewById(R.id.item_image);
-            itemName = itemView.findViewById(R.id.item_name);
-            itemPrice = itemView.findViewById(R.id.item_price);
-            itemQuantity = itemView.findViewById(R.id.item_quantity);
+            itemImage = itemView.findViewById(R.id.menuImageView);
+            itemName = itemView.findViewById(R.id.menuItemTextView);
+            itemPrice = itemView.findViewById(R.id.pizzaPriceTextView);
+            itemQuantity = itemView.findViewById(R.id.menuItemQuantityPicker);
         }
     }
 }

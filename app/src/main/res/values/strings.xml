@@ -49,4 +49,29 @@
 
     </string-array>
 
+    <string name="appName">Order_Customization</string>
+    <string name="makePizza">Make Your Own Pizza</string>
+    <string name="selectPizzaSize">Select Pizza Size</string>
+    <string name="checkout">Checkout</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="defaultType">Choose Sauce:</string>
+    <string name="tomato_sauce">Tomato Sauce</string>
+    <string name="alfredo_sauce">Alfredo Sauce</string>
+    <string name="choose_meat">Choose Meat:</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="bacon">Bacon</string>
+    <string name="italian_sausage">Italian Sausage</string>
+    <string name="choose_veggies">Choose Veggies</string>
+    <string name="mushrooms">Mushrooms</string>
+    <string name="onions">Onions</string>
+    <string name="peppers">Peppers</string>
+    <string name="tomatoes">Tomatoes</string>
+    <string name="default_pizza">Note: all pizzas come with cheese by default.</string>
+    <string name="default_pizza_price">$12</string>
+    <array name="sizes">
+        <item>Small $12</item>
+        <item>Medium $14</item>
+        <item>Large $16</item>
+    </array>
+
 </resources>

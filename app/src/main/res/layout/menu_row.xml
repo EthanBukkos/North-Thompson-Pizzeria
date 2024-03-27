@@ -32,15 +32,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <NumberPicker
+                android:id="@+id/menuItemQuantityPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menuImageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                app:layout_constraintVertical_bias="0.466" />
+
             <ImageView
                 android:id="@+id/menuImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="180dp"
+                android:layout_marginEnd="48dp"
                 android:contentDescription="@string/todo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline"
+                app:layout_constraintStart_toEndOf="@+id/menuItemQuantityPicker"
+                app:layout_constraintTop_toBottomOf="@+id/menuItemTextView"
                 app:srcCompat="@drawable/custom_pizza" />
 
             <TextView
@@ -53,6 +64,16 @@
                 app:layout_constraintBottom_toTopOf="@+id/menuImageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+            <TextView
+                android:id="@+id/pizzaPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_pizza_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toEndOf="@+id/menuItemTextView"
                 app:layout_constraintTop_toTopOf="@+id/guideline" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

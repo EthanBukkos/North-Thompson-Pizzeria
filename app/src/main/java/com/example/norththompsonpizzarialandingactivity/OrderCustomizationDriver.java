@@ -1,4 +1,4 @@
-package com.ethanlogintest.order_customization;
+package com.example.norththompsonpizzarialandingactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,7 +38,7 @@ public class OrderCustomizationDriver extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_customization_main);
 
-        // Initializing UI components and dat models
+        // Initializing UI components and data models
         setupUI();
         setupModelLists();
         setupRecyclerView();
