@@ -62,4 +62,43 @@
         <item>Large $16</item>
     </array>
 
+    <string name="nptString">North Thompson Pizzeria</string>
+    <string name="menuString">Menu</string>
+    <string name="dealsBtnLabel">Deals of the Week</string>
+    <string name="signInBtnLabel">Sign In/Create Account</string>
+    <string name="locationBtnLabel">Location</string>
+    <string name="contactUsBtnLabel">Contact Us</string>
+    <string name="backBtnLabel">Back</string>
+    <string name="signInString">Sign In</string>
+    <string name="usernamePromptString">Username:</string>
+    <string name="passwordPromptString">Password:</string>
+    <string name="forgotPwdBtnLabel">Forgot Password</string>
+    <string name="createAccBtnLabel">Sign In</string>
+    <string name="enter_email">Enter Email:</string>
+    <string name="sms_info">An SMS verification code will be sent to the phone number associated with your email.</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="enter_code">Enter Code:</string>
+    <string name="create_account">Create Account</string>
+    <string name="create_password">Create Password:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="new_password">New Password:</string>
+    <string name="retype_password">Retype Password:</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="verify_code">Verify Code</string>
+    <string name="menuSignInLabel">Sign In</string>
+    <string name="customPizaBtnLabel">Custom Pizza</string>
+    <string name="code_input_instruction">Please enter the SMS code sent to you:</string>
+    <string name="enter_code_here">Enter code here</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="phone_hint">+1234567890</string>
+    <string name="password_hint">Password must be at least 6 characters long</string>
+
 </resources>

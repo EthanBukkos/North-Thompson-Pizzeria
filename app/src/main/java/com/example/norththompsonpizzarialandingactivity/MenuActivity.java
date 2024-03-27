@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +20,8 @@ public class MenuActivity extends AppCompatActivity {
     // Initialize array list of type MenuItemModel
     ArrayList<MenuItemModel> menuArrayList = new ArrayList<>();
 
-    Button backBtn, signInBtn;
+    Button backBtn, signInSignOutBtn;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,10 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         RecyclerView recyclerView = findViewById(R.id.menuRecView);
         backBtn = findViewById(R.id.menuBackBtn);
-        signInBtn = findViewById(R.id.menuSignInBtn);
+        signInSignOutBtn = findViewById(R.id.menuSignInBtn);
+        mAuth = FirebaseAuth.getInstance();
+
+        updateButtonOnUserStatus();
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,14 +43,14 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-//        signInBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent = new Intent(MenuActivity.this, signIn.class);
-//                startActivity(intent);
-//            }
-//        });
+        signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+                Intent intent = new Intent();
+                intent = new Intent(MenuActivity.this,SignInActivity.class);
+                startActivity(intent);
+            }
+        });
 
         menuArrayList.add(new MenuItemModel(R.drawable.custom_pizza,"Customize Pizza",
                 12.00, 14.00, 18.00, 0));
@@ -77,6 +84,34 @@ public class MenuActivity extends AppCompatActivity {
         // Grid layout
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
+    }
+
+    private void updateButtonOnUserStatus() {
+        if (mAuth.getCurrentUser() != null) {
+            signInSignOutBtn.setText("Sign Out");
+            signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // User sign out
+                    mAuth.signOut();
+
+                    signInSignOutBtn.setText("Sign In");
+
+                    updateButtonOnUserStatus();
+                }
+            });
+        } else {
+            signInSignOutBtn.setText("Sign In");
+            signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(), "Sign out successful.",
+                            Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MenuActivity.this, SignInActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
 

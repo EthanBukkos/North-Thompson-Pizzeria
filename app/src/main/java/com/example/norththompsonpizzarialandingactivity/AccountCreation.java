@@ -1,4 +1,4 @@
-package com.norththompsonpizzeria.signincreateaccount;
+package com.example.norththompsonpizzarialandingactivity;
 
 import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;

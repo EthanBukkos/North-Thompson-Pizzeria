@@ -1,4 +1,4 @@
-package com.norththompsonpizzeria.signincreateaccount;
+package com.example.norththompsonpizzarialandingactivity;
 
 import static android.content.ContentValues.TAG;
 
@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignInActivity extends AppCompatActivity {
 
-    Button signInBtn, createAccBtn, forgotPwdBtn;
+    Button signInSignOutBtn, createAccBtn, forgotPwdBtn, backBtn;
     EditText emailEditText, pwdEditText;
     FirebaseAuth mAuth;
 
@@ -35,11 +35,12 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        signInBtn = findViewById(R.id.signInBtn);
+        signInSignOutBtn = findViewById(R.id.signInBtn);
         createAccBtn = findViewById(R.id.createAccBtn);
         forgotPwdBtn = findViewById(R.id.forgotPwdBtn);
         emailEditText = findViewById(R.id.usernameInput);
         pwdEditText = findViewById(R.id.pwdInput);
+        backBtn = findViewById(R.id.signInBackBtn);
 
         // Firebase authentication instance
         mAuth = FirebaseAuth.getInstance();
@@ -64,8 +65,16 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("BackButton", "Button pressed");
+                finish();
+            }
+        });
+
         // Listener for 'Sign In' button
-        signInBtn.setOnClickListener(new View.OnClickListener() {
+        signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email, password;
@@ -91,15 +100,13 @@ public class SignInActivity extends AppCompatActivity {
                                     Toast.makeText(SignInActivity.this,
                                             "Sign in successful.",Toast.LENGTH_SHORT).show();
                                     Intent signedInMenuIntent = new Intent(SignInActivity.this,
-                                            Menu.class);
+                                            MenuActivity.class);
                                     startActivity(signedInMenuIntent);
                                     finish();
                                 } else {
-
                                     Toast.makeText(SignInActivity.this,
                                             "Email/Password is incorrect.",
                                             Toast.LENGTH_SHORT).show();
-
                                 }
                             }
                         });
@@ -107,6 +114,7 @@ public class SignInActivity extends AppCompatActivity {
         });
 
     }
+
 
     // Check if user is signed in
 //    @Override
