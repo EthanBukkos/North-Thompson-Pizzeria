@@ -1,16 +1,13 @@
 package com.example.norththompsonpizzarialandingactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class DealOfTheWeek extends AppCompatActivity {
@@ -20,7 +17,7 @@ public class DealOfTheWeek extends AppCompatActivity {
     ArrayList<MenuItemModel> menuArrayList = new ArrayList<>();
     ImageView pizzaImage;
     TextView nameTV, discountTV, smallCostTV, mediumCostTV, largeCostTV;
-    double DEAL_DISCOUNT;
+    double DEAL_DISCOUNT; // constant to hold the value set in the discount TV of the UI
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +55,6 @@ public class DealOfTheWeek extends AppCompatActivity {
             DEAL_DISCOUNT = 0.0;
         }
 
-
         // ArrayList of Menu Items to pull and use for random selections in call to randomDeal()
 
         menuArrayList.add(new MenuItemModel(R.drawable.custom_pizza,"Customize Pizza",
@@ -87,7 +83,6 @@ public class DealOfTheWeek extends AppCompatActivity {
 
         randomDeal();
     }
-
 
     // Random method to import Random class, calculate the discounted cost based on discount % on UI
     // and set the text to two decimal places. Use Getters from Model class to provide information.

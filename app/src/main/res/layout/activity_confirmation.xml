@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@id/order_review"
+            android:layout_below="@id/return_to_menu_button"
             android:layout_marginTop="16dp">
 
             <Button

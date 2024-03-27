@@ -16,7 +16,7 @@
     <string name="email">Email</string>
     <string name="review">Review</string>
     <string name="LogoContentDescription">Company Logo</string>
-    <string name="reviewsTitle">Review</string>
+    <string name="reviewsTitle">Tell Us What you Think!</string>
     <string name="customerReviews">Our Customer Reviews:</string>
     <string name="viewReviews">See Reviews</string>
 
@@ -33,20 +33,8 @@
     <string name="dealPizzaNameTV">Name of Pizza</string>
     <string name="percentOffTV">% Off!</string>
     <string name="title_activity_location">location</string>
-    <string name="locationET">Enter Your Location</string>
+    <string name="locationET">Enter Your Address</string>
     <string name="customerReviewEtHint">Leave us a Review!</string>
-
-    <string-array name="reviews">
-        <item>Best Pizza in Town! \n-John</item>
-        <item>Great Service \n-Stacy</item>
-        <item>Slow Delivery... \n-MacGruber</item>
-        <item>Great Prices! \n-Cecilia</item>
-        <item>Amazing Staff \n-Monica</item>
-        <item>Delivery drvier was so nice and food was great! \n-Regina</item>
-        <item>The pizza is incredible, I cant wait to go again! \n-Richard</item>
-        <item>Almost as good as McDonalds Pizza \n-Ronald</item>
-
-
-    </string-array>
+    <string name="reviewSubmitBtn">Submit Review</string>
 
 </resources>

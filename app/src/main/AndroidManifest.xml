@@ -31,7 +31,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyDfId2Vm7gXnuSWoQy9J2pjWm4DoBnt7WY" />
 
         <activity
             android:name=".MenuActivity"
@@ -50,9 +50,6 @@
             android:exported="false"
             android:label="@string/title_activity_contact_us"
             android:theme="@style/Theme.NorthThompsonPizzariaLandingActivity" />
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="false" />-->
         <activity
             android:name=".LocationList"
             android:exported="false" />

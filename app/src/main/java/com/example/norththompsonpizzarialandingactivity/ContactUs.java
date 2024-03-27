@@ -1,11 +1,7 @@
 package com.example.norththompsonpizzarialandingactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -57,7 +53,6 @@ public class ContactUs extends AppCompatActivity {
         // intent to call the email app defaulted on the device to send an email and then uses a
         // dummy email address as the extra
         emailBtn.setOnClickListener(new View.OnClickListener() {
-
             String emailAddress = "NorthThompsonPizzaria@gmail.com";
             @Override
             public void onClick(View v) {
@@ -65,11 +60,6 @@ public class ContactUs extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_EMAIL, emailAddress);
                 startActivity(Intent.createChooser(intent, "Choose an email client : "));
             }
-
-
-
         });
-
-
     }
 }

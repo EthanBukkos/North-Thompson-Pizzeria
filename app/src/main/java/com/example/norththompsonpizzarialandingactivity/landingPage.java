@@ -1,13 +1,12 @@
 package com.example.norththompsonpizzarialandingactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 public class landingPage extends AppCompatActivity {
-    private static int SPLASH_SCREEN_DELAY = 6000;
+    private static int SPLASH_SCREEN_DELAY = 6000; // constant of how long the loading delay should be
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
