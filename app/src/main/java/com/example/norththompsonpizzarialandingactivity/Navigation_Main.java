@@ -51,14 +51,13 @@ public class Navigation_Main extends AppCompatActivity {
             }
         });
 
-        // registration once I have activity
-       /* registerBtn.setOnClickListener(new View.OnClickListener() {
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(MainActivity.this, register.class);
-                startActivity(intent);
+               Intent signInIntent = new Intent(Navigation_Main.this,SignInActivity.class);
+               startActivity(signInIntent);
             }
-        });*/
+        });
 
         // To location page
         locationBtn.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package com.norththompsonpizzeria.signincreateaccount;
+package com.example.norththompsonpizzarialandingactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
