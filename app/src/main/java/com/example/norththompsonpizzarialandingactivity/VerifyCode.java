@@ -137,7 +137,7 @@ public class VerifyCode extends AppCompatActivity {
 
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
                 .setPhoneNumber(phoneNumber)
-                .setTimeout(30L, TimeUnit.MINUTES)
+                .setTimeout(60L, TimeUnit.SECONDS)
                 .setActivity(this)
                 .setCallbacks(mCallbacks)
                 .setForceResendingToken(token)

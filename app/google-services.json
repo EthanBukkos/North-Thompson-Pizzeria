@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:846169666779:android:feba74d43425f7cb6a88fe",
+        "mobilesdk_app_id": "1:846169666779:android:b57515fa17b90e326a88fe",
         "android_client_info": {
           "package_name": "com.example.norththompsonpizzarialandingactivity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb1XN7-vuUyAENwIPV99pkXPhsFkc-OOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846169666779:android:feba74d43425f7cb6a88fe",
+        "android_client_info": {
+          "package_name": "com.norththompsonpizzeria.signincreateaccount"
         }
       },
       "oauth_client": [],
