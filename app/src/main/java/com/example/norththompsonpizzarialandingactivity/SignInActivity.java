@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignInActivity extends AppCompatActivity {
 
-    Button signInSignOutBtn, createAccBtn, forgotPwdBtn, backBtn;
+    Button signInSignOutBtn, createAccBtn, forgotPwdBtn, backBtn, profileBtn;
     EditText emailEditText, pwdEditText;
     FirebaseAuth mAuth;
 
@@ -41,6 +41,7 @@ public class SignInActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.usernameInput);
         pwdEditText = findViewById(R.id.pwdInput);
         backBtn = findViewById(R.id.signInBackBtn);
+        profileBtn = findViewById(R.id.profileBtn);
 
         // Firebase authentication instance
         mAuth = FirebaseAuth.getInstance();
@@ -52,6 +53,16 @@ public class SignInActivity extends AppCompatActivity {
                 Intent forgotPwdIntent = new Intent(
                         SignInActivity.this,ForgotPasswordActivity.class);
                 startActivity(forgotPwdIntent);
+            }
+        });
+
+        // Listener for 'Profile' button
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profileIntent = new Intent(SignInActivity.this, Profile.class);
+                startActivity(profileIntent);
             }
         });
 
