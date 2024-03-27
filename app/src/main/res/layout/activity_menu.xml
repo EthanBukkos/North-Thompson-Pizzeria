@@ -19,8 +19,10 @@
 
     <Button
         android:id="@+id/button"
+        android:background="@drawable/button_border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/back"
@@ -33,6 +35,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_border"
+        android:padding="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/sign_in"

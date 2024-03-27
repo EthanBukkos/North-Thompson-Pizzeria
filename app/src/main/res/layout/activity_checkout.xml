@@ -52,6 +52,9 @@
                 android:id="@+id/return_to_menu_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_border"
+                android:layout_margin="3dp"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="Return to Menu" />
 
@@ -59,6 +62,9 @@
                 android:id="@+id/cancel_order_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_border"
+                android:layout_margin="3dp"
+                android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="Cancel Order" />
 
@@ -66,6 +72,9 @@
                 android:id="@+id/checkout_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_border"
+                android:textStyle="bold"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:text="Checkout" />
 
