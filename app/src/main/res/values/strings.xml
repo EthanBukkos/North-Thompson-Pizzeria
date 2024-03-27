@@ -63,6 +63,8 @@
     </array>
 
     <string name="nptString">North Thompson Pizzeria</string>
+    <string name="create_account_signIN_page">Create Account</string>
+    <string name="profileBtnText">Profile</string>
     <string name="menuString">Menu</string>
     <string name="dealsBtnLabel">Deals of the Week</string>
     <string name="signInBtnLabel">Sign In/Create Account</string>
