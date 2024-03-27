@@ -1,6 +1,8 @@
 package com.example.norththompsonpizzarialandingactivity;
 
-public class MenuItemModel {
+import java.io.Serializable;
+
+public class MenuItemModel implements Serializable {
 
     int img;
     String name;

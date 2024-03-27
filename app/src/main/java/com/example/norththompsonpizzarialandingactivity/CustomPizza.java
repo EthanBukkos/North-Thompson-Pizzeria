@@ -1,9 +1,10 @@
 package com.example.norththompsonpizzarialandingactivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomPizza {
+public class CustomPizza implements Serializable {
 
     private String size, sauce;
     List<String> meats;
