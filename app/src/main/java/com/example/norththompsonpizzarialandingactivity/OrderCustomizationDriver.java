@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,6 +31,8 @@ public class OrderCustomizationDriver extends AppCompatActivity
     RecyclerView recyclerView;
     Button checkoutBtn;
     TextView subtotalTextView;
+
+    Intent intent = new Intent();
 
     Map<String, Double> sizePrices = new HashMap<>();
 
@@ -117,10 +120,13 @@ public class OrderCustomizationDriver extends AppCompatActivity
     }
 
     public void onCheckoutBtnClicked(View view) {
-
         if (validatePizzaSelections()) {
             CustomPizza customPizza = createCustomPizza();
             Log.d("OrderCustomizationDriver", "Pizza Created: " + customPizza.toString());
+
+            intent = new Intent(OrderCustomizationDriver.this, CheckoutActivity.class);
+            intent.putExtra("customPizza", customPizza);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Please complete all pizza selections",
                     Toast.LENGTH_SHORT).show();
