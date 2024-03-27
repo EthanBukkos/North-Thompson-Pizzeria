@@ -80,4 +80,15 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
             quantityPicker = itemView.findViewById(R.id.menuItemQuantityPicker);
         }
     }
+
+    // get the selected item objects and their quantities from the menu screen
+    public ArrayList<MenuItemModel> getSelectedItems() {
+        ArrayList<MenuItemModel> selectedItems = new ArrayList<>();
+        for (MenuItemModel menuItem : menuArrayList) {
+            if (menuItem.getQuantity() > 0) {
+                selectedItems.add(menuItem);
+            }
+        }
+        return selectedItems;
+    }
 }
