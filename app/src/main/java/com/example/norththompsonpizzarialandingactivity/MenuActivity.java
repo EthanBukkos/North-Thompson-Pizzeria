@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,11 +17,33 @@ public class MenuActivity extends AppCompatActivity {
     // Initialize array list of type MenuItemModel
     ArrayList<MenuItemModel> menuArrayList = new ArrayList<>();
 
+    Button backBtn, signInBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         RecyclerView recyclerView = findViewById(R.id.menuRecView);
+        backBtn = findViewById(R.id.menuBackBtn);
+        signInBtn = findViewById(R.id.menuSignInBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent = new Intent(MenuActivity.this, Navigation_Main.class);
+                startActivity(intent);
+            }
+        });
+
+//        signInBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent = new Intent(MenuActivity.this, signIn.class);
+//                startActivity(intent);
+//            }
+//        });
 
         menuArrayList.add(new MenuItemModel(R.drawable.custom_pizza,"Customize Pizza",
                 12.00, 14.00, 18.00, 0));
@@ -53,4 +78,6 @@ public class MenuActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
     }
+
+
 }
