@@ -1,4 +1,5 @@
 package com.example.norththompsonpizzarialandingactivity;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +49,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public TextView itemName, itemPrice, itemQuantity;
         public Button removeButton;
 
+        @SuppressLint("WrongViewCast")
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             itemImage = itemView.findViewById(R.id.menuImageView);
             itemName = itemView.findViewById(R.id.menuItemTextView);
-          //  itemPrice = itemView.findViewById(R.id.item_price);
-        //    itemQuantity = itemView.findViewById(R.id.item_quantity);
+            itemPrice = itemView.findViewById(R.id.pizzaPriceTextView);
+            itemQuantity = itemView.findViewById(R.id.menuItemQuantityPicker);
         }
     }
 }

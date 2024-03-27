@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,9 +38,22 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull View_Holder holder, int position) {
+        MenuItemModel menuItem = menuArrayList.get(position);
 
         holder.image.setImageResource(menuArrayList.get(position).img);
-        holder.text.setText(menuArrayList.get(position).name);
+        holder.menuItemName.setText(menuArrayList.get(position).name);
+        holder.price.setText(String.format("$%.2f", menuItem.getSmlPrice()));
+        holder.quantityPicker.setMinValue(0);
+        holder.quantityPicker.setMaxValue(10);
+        holder.quantityPicker.setValue(menuItem.getQuantity());
+
+        // Quantity change listener
+        holder.quantityPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                menuItem.setQuantity(newVal);
+            }
+        });
     }
 
     @Override
@@ -51,7 +65,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
     public class View_Holder extends RecyclerView.ViewHolder {
 
         ImageView image;
-        TextView text;
+        TextView menuItemName, price;
+        NumberPicker quantityPicker;
 
         // Create View_Holder constructor
         public View_Holder(@NonNull View itemView) {
@@ -60,7 +75,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
 
             // Attach UI instance variables to UI components in menu_row.xml
             image = itemView.findViewById(R.id.menuImageView);
-            text = itemView.findViewById(R.id.menuItemTextView);
+            menuItemName = itemView.findViewById(R.id.menuItemTextView);
+            price = itemView.findViewById(R.id.pizzaPriceTextView);
+            quantityPicker = itemView.findViewById(R.id.menuItemQuantityPicker);
         }
     }
 }
