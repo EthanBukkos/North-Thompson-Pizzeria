@@ -20,8 +20,10 @@ public class MenuActivity extends AppCompatActivity {
     // Initialize array list of type MenuItemModel
     ArrayList<MenuItemModel> menuArrayList = new ArrayList<>();
 
-    Button backBtn, signInSignOutBtn;
+    Button backBtn, signInSignOutBtn, submitOrderBtn;
     FirebaseAuth mAuth;
+
+    private MenuAdapter menuAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,18 @@ public class MenuActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.menuBackBtn);
         signInSignOutBtn = findViewById(R.id.menuSignInBtn);
         mAuth = FirebaseAuth.getInstance();
+        submitOrderBtn = findViewById(R.id.submitOrderBtn);
+
+        menuAdapter = new MenuAdapter(this, menuArrayList);
 
         updateButtonOnUserStatus();
+
+        submitOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submitOrder();
+            }
+        });
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +124,31 @@ public class MenuActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    // submitOrder method to add the objects and their quantity and send through an intent
+    private void submitOrder() {
+        ArrayList<MenuItemModel> selectedItems = menuAdapter.getSelectedItems();
+
+        // check to see if there is greater than 0 items selected
+        boolean zeroItemsSelected = false;
+        for (MenuItemModel item : selectedItems) {
+            if (item.getQuantity() > 0) {
+                zeroItemsSelected = true;
+                break;
+            }
+        }
+        // Let user know to select an item if nothing has a quantity selected
+        if (!zeroItemsSelected) {
+            Toast.makeText(this,"Please select an Item before Submitting your Order!",Toast.LENGTH_SHORT).show();
+            return;
+        }
+//        Intent intent = new Intent(MenuActivity.this, Total.class);
+//
+//        intent.putExtra("selectedItems", selectedItems);
+//        startActivity(intent);
+
+        Toast.makeText(this,"Order Submitted", Toast.LENGTH_SHORT).show();
     }
 
 
