@@ -37,6 +37,13 @@
             android:value="AIzaSyDfId2Vm7gXnuSWoQy9J2pjWm4DoBnt7WY" />
 
         <activity
+            android:name=".CheckoutActivity"
+            android:exported="false"/>
+
+        <activity android:name=".ConfirmationActivity"
+            android:exported="false"/>
+
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity

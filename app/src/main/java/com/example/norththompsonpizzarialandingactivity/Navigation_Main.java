@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Navigation_Main extends AppCompatActivity {
 
-    Button contactBtn, registerBtn, menuBtn, dealBtn, locationBtn;
+    Button contactBtn, registerBtn, menuBtn, dealBtn, locationBtn, checkoutBtn;
     Intent intent;
 
 
@@ -23,6 +23,16 @@ public class Navigation_Main extends AppCompatActivity {
         menuBtn = findViewById(R.id.menuBtn);
         dealBtn = findViewById(R.id.dealBtn);
         locationBtn = findViewById(R.id.locationBtn);
+        checkoutBtn = findViewById(R.id.navCheckoutBtn);
+
+        // checkout page
+        checkoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(Navigation_Main.this, CheckoutActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // contact page
         contactBtn.setOnClickListener(new View.OnClickListener() {

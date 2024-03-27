@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CheckoutActivity extends AppCompatActivity {
 
+    TextView customPizza;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,9 @@ public class CheckoutActivity extends AppCompatActivity {
         returnToMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent = new Intent(CheckoutActivity.this,Navigation_Main.class);
+                startActivity(intent);
 
             }
         });
