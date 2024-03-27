@@ -7,6 +7,13 @@ import java.util.List;
 public class CustomPizza implements Serializable {
 
     private String size, sauce;
+
+    double smallPrice;
+    double medPrice;
+
+
+
+    double largePrice;
     List<String> meats;
     List<String> veggies;
 
@@ -37,6 +44,12 @@ public class CustomPizza implements Serializable {
     public List<String> getVeggies() {
         return veggies;
     }
+
+    public double getSmallPrice() { return smallPrice; }
+
+    public double getMedPrice() { return medPrice; }
+
+    public double getLargePrice() { return largePrice; }
 
     @Override
     public String toString() {
