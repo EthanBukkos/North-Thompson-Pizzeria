@@ -68,6 +68,18 @@
         <activity
             android:name=".SignInActivity"
             android:exported="false" />
+        <activity
+            android:name=".AccountCreation"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyCode"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResetPassword"
+            android:exported="false" />
     </application>
 
 </manifest>
