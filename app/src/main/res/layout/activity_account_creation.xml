@@ -14,7 +14,6 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_border"
         android:text="@string/backBtnLabel"
-        android:textSize="20dp"
         app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +135,6 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/button_border"
         android:text="@string/create_account"
-        android:textSize="20sp"
         app:cornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

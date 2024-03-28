@@ -39,7 +39,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/menuImageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline"
-                app:layout_constraintVertical_bias="0.103" />
+                app:layout_constraintVertical_bias="0.121" />
 
             <ImageView
                 android:id="@+id/menuImageView"
@@ -63,7 +63,6 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/menuImageView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.36"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline"
                 app:layout_constraintVertical_bias="0.292" />
@@ -86,7 +85,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/menuItemQuantityPicker">
 
@@ -94,22 +95,25 @@
                     android:id="@+id/pizzaSmlRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/menuSmall"
-                    android:tag="Small"/>
+                    android:minHeight="48dp"
+                    android:tag="Small"
+                    android:text="@string/menuSmall" />
 
                 <RadioButton
                     android:id="@+id/pizzaMedRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/menuMedium"
-                    android:tag="Medium"/>
+                    android:minHeight="48dp"
+                    android:tag="Medium"
+                    android:text="@string/menuMedium" />
 
                 <RadioButton
                     android:id="@+id/pizzaLrgRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/menuLarge"
-                    android:tag="Large"/>
+                    android:minHeight="48dp"
+                    android:tag="Large"
+                    android:text="@string/menuLarge" />
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
