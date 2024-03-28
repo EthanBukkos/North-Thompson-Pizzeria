@@ -87,6 +87,7 @@ public class VerifyCode extends AppCompatActivity {
 
     }
 
+    // Send verification code to user
     private void sendVerificationCode(String phoneNumber) {
 
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
@@ -133,6 +134,7 @@ public class VerifyCode extends AppCompatActivity {
                 }
             };
 
+    // Resend verification code to user
     private void resendVerificationCode(String phoneNumber, PhoneAuthProvider.ForceResendingToken token) {
 
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
@@ -163,6 +165,7 @@ public class VerifyCode extends AppCompatActivity {
         });
     }
 
+    // Create user account
     private void createUserWithEmailPassword(String email, String password) {
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

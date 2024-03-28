@@ -63,12 +63,48 @@ public class InformationConfirmation extends AppCompatActivity {
     }
 
     private boolean checkFilledFields() {
-        return !firstName.getText().toString().trim().isEmpty() &&
-                !lastName.getText().toString().trim().isEmpty() &&
-                !phoneNum.getText().toString().trim().isEmpty() &&
-                !address.getText().toString().trim().isEmpty() &&
-                !ccNum.getText().toString().trim().isEmpty() &&
-                !ccExpiry.getText().toString().trim().isEmpty() &&
-                !cvc.getText().toString().trim().isEmpty();
+        if (firstName.getText().toString().trim().isEmpty() &&
+                lastName.getText().toString().trim().isEmpty() &&
+                phoneNum.getText().toString().trim().isEmpty() &&
+                address.getText().toString().trim().isEmpty() &&
+                ccNum.getText().toString().trim().isEmpty() &&
+                ccExpiry.getText().toString().trim().isEmpty() &&
+                cvc.getText().toString().trim().isEmpty()) {
+
+            return false;
+        }
+
+        // Input check for valid phone number format
+        String phonePattern = "^\\d{10}$";
+        String phoneNumText = phoneNum.getText().toString().trim();
+
+        if (!phoneNumText.matches(phonePattern)) {
+            Toast.makeText(InformationConfirmation.this, "Please user correct phone number format.",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        String ccNumText = ccNum.getText().toString().trim();
+        if (ccNumText.length() < 16 || ccNumText.length() > 19) {
+            Toast.makeText(InformationConfirmation.this, "Invalid credit card number.",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Input check for credit card expiry date
+        String ccExpiryText = ccExpiry.getText().toString().trim();
+        if (!ccExpiryText.matches("^(0[1-9]|1[0-2])/\\d{2}$")) {
+            Toast.makeText(InformationConfirmation.this,"Credit card expiry must be in the correct format",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        // Input check for credit card cvc
+        String cvcText = cvc.getText().toString().trim();
+        if (cvcText.length() != 3) {
+            Toast.makeText(InformationConfirmation.this,"Invalid CVC.",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }
