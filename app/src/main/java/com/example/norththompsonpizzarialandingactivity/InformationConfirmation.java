@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class InformationConfirmation extends AppCompatActivity {
 
     EditText firstName, lastName, phoneNum, address, ccNum, ccExpiry, cvc;
@@ -29,11 +31,22 @@ public class InformationConfirmation extends AppCompatActivity {
         cvc = findViewById(R.id.cvcEditText);
         continueToCheckoutBtn = findViewById(R.id.contCheckoutBtn);
 
+        ArrayList<MenuItemModel> selectedItems = (ArrayList<MenuItemModel>) getIntent().getSerializableExtra("selectedItems");
+        double totalAmount = getIntent().getDoubleExtra("total",0.0);
+        double taxAmount = getIntent().getDoubleExtra("tax",0.0);
+        double tipAmount = getIntent().getDoubleExtra("tipAmount", 0.0);
+        double subtotal = getIntent().getDoubleExtra("subtotal", 0.0);
+
         continueToCheckoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (checkFilledFields()) {
-                    Intent toCheckoutIntent = new Intent(InformationConfirmation.this, CheckoutActivity.class);
+                    Intent toCheckoutIntent = new Intent(InformationConfirmation.this, ConfirmationActivity.class);
+                    toCheckoutIntent.putExtra("selectedItems",selectedItems);
+                    toCheckoutIntent.putExtra("tax", taxAmount);
+                    toCheckoutIntent.putExtra("total",totalAmount);
+                    toCheckoutIntent.putExtra("tipAmount",tipAmount);
+                    toCheckoutIntent.putExtra("subtotal", subtotal);
                     startActivity(toCheckoutIntent);
                 } else {
                     Toast.makeText(InformationConfirmation.this,"Please fill all fields",

@@ -58,8 +58,8 @@ public class CheckoutActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                final double tipAmount = (progress / 100.0) * totalAmount;
-                final double totalWithTip = totalAmount + tipAmount;
+                tipAmount = (progress / 100.0) * totalAmount;
+                totalWithTip = totalAmount + tipAmount;
                 tipPercentageTextView.setText("Tip Percentage: " + progress + "%");
                 tipAmt.setText(String.format("Tip Amount: $%.2f", tipAmount));
                 totalWithTipTextView.setText(String.format("Total (with Tip): $%.2f", totalWithTip));
