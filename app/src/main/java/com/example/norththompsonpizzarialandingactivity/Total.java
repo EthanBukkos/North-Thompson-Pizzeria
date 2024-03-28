@@ -21,7 +21,7 @@ public class Total extends AppCompatActivity {
     MenuAdapter menuAdapter;
     Intent intent;
 
-    private final double TAX_AMOUNT = 0.13;
+    private final double TAX_AMOUNT = 0.13; // constant to hold current tax value
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class Total extends AppCompatActivity {
         taxTv = findViewById(R.id.tax_text);
         totalTv = findViewById(R.id.total_text);
 
+        // display the objects from the menu screen in this recyclerview, reuse menuAdapter
         ArrayList<MenuItemModel> selectedItems = (ArrayList<MenuItemModel>) getIntent().getSerializableExtra("selectedItems");
         menuAdapter = new MenuAdapter(this, selectedItems);
 
@@ -42,6 +43,7 @@ public class Total extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // calculations to figure out each line total and set the values in their textViews
         double subtotal = calculateSubtotal(selectedItems);
         double tax = TAX_AMOUNT * subtotal;
         double total = subtotal + tax;
@@ -68,6 +70,7 @@ public class Total extends AppCompatActivity {
 
     }
 
+    // calculate the subtotal amount based on quantities and pizza size
     private double calculateSubtotal(ArrayList<MenuItemModel> selectedItems) {
         double subtotal = 0.0;
         for (MenuItemModel item : selectedItems) {
