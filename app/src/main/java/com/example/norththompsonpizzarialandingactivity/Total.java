@@ -72,8 +72,12 @@ public class Total extends AppCompatActivity {
         checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ArrayList<MenuItemModel> selectedItems = menuAdapter.getSelectedItems();
                 intent = new Intent(Total.this, CheckoutActivity.class);
                 intent.putExtra("totalCost", total);
+                intent.putExtra("subtotal",subtotal);
+                intent.putExtra("tax", tax);
+                intent.putExtra("selectedItems",selectedItems);
                 startActivity(intent);
             }
         });

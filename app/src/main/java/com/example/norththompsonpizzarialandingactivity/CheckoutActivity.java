@@ -11,18 +11,28 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 
 public class CheckoutActivity extends AppCompatActivity {
 
     TextView totalTv,totalBefTip, tipAmt;
     Intent intent;
 
+    double totalWithTip = 0.0;
+    double tipAmount = 0.0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+        ArrayList<MenuItemModel> selectedItems = (ArrayList<MenuItemModel>) getIntent().getSerializableExtra("selectedItems");
+
         double totalAmount = getIntent().getDoubleExtra("totalCost",0.0);
+        double taxAmt = getIntent().getDoubleExtra("tax",0.0);
+        double subtotal = getIntent().getDoubleExtra("subtotal",0.0);
+
 
 
 
@@ -48,8 +58,8 @@ public class CheckoutActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                double tipAmount = (progress / 100.0) * totalAmount;
-                double totalWithTip = totalAmount + tipAmount;
+                final double tipAmount = (progress / 100.0) * totalAmount;
+                final double totalWithTip = totalAmount + tipAmount;
                 tipPercentageTextView.setText("Tip Percentage: " + progress + "%");
                 tipAmt.setText(String.format("Tip Amount: $%.2f", tipAmount));
                 totalWithTipTextView.setText(String.format("Total (with Tip): $%.2f", totalWithTip));
@@ -81,7 +91,12 @@ public class CheckoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(CheckoutActivity.this, ConfirmationActivity.class);
+                Intent intent = new Intent(CheckoutActivity.this, InformationConfirmation.class);
+                intent.putExtra("selectedItems",selectedItems);
+                intent.putExtra("tax", taxAmt);
+                intent.putExtra("total",totalWithTip);
+                intent.putExtra("tipAmount",tipAmount);
+                intent.putExtra("subtotal", subtotal);
                 startActivity(intent);
             }
         });
