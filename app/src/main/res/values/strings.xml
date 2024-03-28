@@ -108,6 +108,15 @@
     <string name="create_accountBtn">Create Account</string>
     <string name="profileBtn">Profile</string>
     <string name="menuSubmitOrderBtn">Submit Order</string>
+    <string name="payment_method">Payment Method:</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="enter_your_information">Enter your Information:</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="continue_to_checkout">Continue to Checkout</string>
+    <string name="expiry">Expiry:</string>
+    <string name="credit_card">Credit Card #:</string>
+    <string name="cvc">CVC:</string>
     <string name="menuSmall">Small</string>
     <string name="menuMedium">Medium</string>
     <string name="menuLarge">Large</string>
