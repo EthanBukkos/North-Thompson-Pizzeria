@@ -4,7 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
 
-    TextView nameTextView, addressTextView, paymentTextView;
+   EditText nameEditText, addressEditText, paymentEditText;
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
+    Button saveBtn, backBtn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,11 +33,24 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        nameTextView = findViewById(R.id.nameInputEditText);
-        addressTextView = findViewById(R.id.addressInputEditText);
-        paymentTextView = findViewById(R.id.paymentInputEditText);
+        nameEditText = findViewById(R.id.nameInputEditText);
+        addressEditText = findViewById(R.id.addressInputEditText);
+        paymentEditText = findViewById(R.id.paymentInputEditText);
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        saveBtn = findViewById(R.id.saveProfileBtn);
+        backBtn = findViewById(R.id.profileBackBtn);
+
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent = new Intent(Profile.this, SignInActivity.class);
+                startActivity(backIntent);
+            }
+        });
+
+        saveBtn.setOnClickListener(v -> saveUserProfile());
 
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
@@ -44,9 +62,9 @@ public class Profile extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     UserProfile userProfile = snapshot.getValue(UserProfile.class);
                     if (userProfile != null) {
-                        nameTextView.setText(userProfile.name);
-                        addressTextView.setText(userProfile.address);
-                        paymentTextView.setText(userProfile.paymentMethod);
+                        nameEditText.setText(userProfile.name);
+                        addressEditText.setText(userProfile.address);
+                        paymentEditText.setText(userProfile.paymentMethod);
                     }
                 }
 
@@ -64,6 +82,29 @@ public class Profile extends AppCompatActivity {
 
         public UserProfile() {
 
+        }
+
+        public UserProfile(String name, String address, String paymentMethod) {
+            this.name = name;
+            this.address = address;
+            this.paymentMethod = paymentMethod;
+        }
+    }
+
+    public void saveUserProfile() {
+        String name = nameEditText.getText().toString().trim();
+        String address = addressEditText.getText().toString().trim();
+        String paymentMethod = paymentEditText.getText().toString().trim();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            String userID = user.getUid();
+            UserProfile updatedProfile = new UserProfile(name, address, paymentMethod);
+            databaseReference.child(userID).setValue(updatedProfile)
+                    .addOnCompleteListener(unused -> Toast.makeText(Profile.this, "Profile Updated.",
+                            Toast.LENGTH_SHORT).show())
+                    .addOnFailureListener(e -> Toast.makeText(Profile.this, "Update Failed..",
+                            Toast.LENGTH_SHORT).show());
         }
     }
 

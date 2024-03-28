@@ -76,6 +76,7 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        // Listner for 'Back' button
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

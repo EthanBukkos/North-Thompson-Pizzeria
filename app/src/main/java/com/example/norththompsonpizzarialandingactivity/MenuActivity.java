@@ -55,14 +55,17 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-                Intent intent = new Intent();
-                intent = new Intent(MenuActivity.this,SignInActivity.class);
+        signInSignOutBtn.setOnClickListener(v -> {
+            if (mAuth.getCurrentUser() != null) {
+                mAuth.signOut();
+                Toast.makeText(getApplicationContext(), "Sign out successful.",
+                        Toast.LENGTH_SHORT).show();
+                updateButtonOnUserStatus();
+            } else {
+                Intent intent = new Intent(MenuActivity.this, SignInActivity.class);
                 startActivity(intent);
             }
-        });
+                });
 
         menuArrayList.add(new MenuItemModel(R.drawable.custom_pizza,"Customize Pizza",
                 12.00, 14.00, 18.00, 0));
@@ -101,28 +104,8 @@ public class MenuActivity extends AppCompatActivity {
     private void updateButtonOnUserStatus() {
         if (mAuth.getCurrentUser() != null) {
             signInSignOutBtn.setText("Sign Out");
-            signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // User sign out
-                    mAuth.signOut();
-
-                    signInSignOutBtn.setText("Sign In");
-
-                    updateButtonOnUserStatus();
-                }
-            });
         } else {
             signInSignOutBtn.setText("Sign In");
-            signInSignOutBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "Sign out successful.",
-                            Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MenuActivity.this, SignInActivity.class);
-                    startActivity(intent);
-                }
-            });
         }
     }
 
