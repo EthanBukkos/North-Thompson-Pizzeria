@@ -19,7 +19,7 @@ public class ConfirmationActivity extends AppCompatActivity {
 
     Intent intent;
 
-    TextView subTot, total, tax, tip;
+    TextView subTot, total, tax, tip, deliveryOrPickupTextView;
 
     RecyclerView recyclerView;
     MenuAdapter menuAdapter;
@@ -29,11 +29,18 @@ public class ConfirmationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
+        deliveryOrPickupTextView = findViewById(R.id.deliveryOrPickupTextView);
         subTot = findViewById(R.id.subtotal_text);
         total = findViewById(R.id.total_text);
         tax = findViewById(R.id.tax_text);
         tip = findViewById(R.id.tipText);
         recyclerView = findViewById(R.id.confirmationRecyclerView);
+
+        String deliveryOrPickup = getIntent().getStringExtra("deliveryMethod");
+
+        if (deliveryOrPickup != null) {
+            deliveryOrPickupTextView.setText("You chose: " + deliveryOrPickup);
+        }
 
         Button returnToMenuButton = findViewById(R.id.return_to_menu_button);
         ArrayList<MenuItemModel> selectedItems = (ArrayList<MenuItemModel>) getIntent().getSerializableExtra("selectedItems");

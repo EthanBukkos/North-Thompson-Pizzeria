@@ -118,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_border"
-        android:text="@string/continue_to_checkout"
+        android:text="@string/completeOrder"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,8 +165,10 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/ccNumTextView"
-        app:layout_constraintTop_toBottomOf="@+id/addressConfirmEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/addressConfirmEditText"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/ccExpiryEditText"
@@ -176,8 +178,10 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="datetime|date"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/ccExpiryTextView"
-        app:layout_constraintTop_toBottomOf="@+id/ccNumEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/ccNumEditText"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/cvcEditText"
@@ -187,6 +191,8 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintStart_toEndOf="@+id/cvcTextView"
-        app:layout_constraintTop_toBottomOf="@+id/ccExpiryEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/ccExpiryEditText"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,9 @@ public class InformationConfirmation extends AppCompatActivity {
         continueToCheckoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String deliveryMethod = getIntent().getStringExtra("deliveryMethod");
+
                 if (checkFilledFields()) {
                     Intent toCheckoutIntent = new Intent(InformationConfirmation.this, ConfirmationActivity.class);
                     toCheckoutIntent.putExtra("selectedItems",selectedItems);
@@ -47,6 +50,7 @@ public class InformationConfirmation extends AppCompatActivity {
                     toCheckoutIntent.putExtra("total",totalAmount);
                     toCheckoutIntent.putExtra("tipAmount",tipAmount);
                     toCheckoutIntent.putExtra("subtotal", subtotal);
+                    toCheckoutIntent.putExtra("deliveryMethod", deliveryMethod);
                     startActivity(toCheckoutIntent);
                 } else {
                     Toast.makeText(InformationConfirmation.this,"Please fill all fields",

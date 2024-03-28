@@ -2,6 +2,8 @@ package com.example.norththompsonpizzarialandingactivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -17,6 +21,7 @@ import java.util.ArrayList;
 public class CheckoutActivity extends AppCompatActivity {
 
     TextView totalTv,totalBefTip, tipAmt;
+    RadioGroup radioGroup;
     Intent intent;
 
     double totalWithTip = 0.0;
@@ -34,8 +39,7 @@ public class CheckoutActivity extends AppCompatActivity {
         double subtotal = getIntent().getDoubleExtra("subtotal",0.0);
 
 
-
-
+        radioGroup = findViewById(R.id.radioGroup);
         final SeekBar tipSeekBar = findViewById(R.id.tip_slider);
         final TextView tipPercentageTextView = findViewById(R.id.tip_percentage_display);
         final TextView totalWithTipTextView = findViewById(R.id.total_with_tip);
@@ -91,12 +95,24 @@ public class CheckoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                if (selectedId == -1) {
+                    Toast.makeText(CheckoutActivity.this, "Please select pickup or delivery.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                RadioButton deliveryOption = findViewById(radioGroup.getCheckedRadioButtonId());
+                String deliveryMethod = deliveryOption.getText().toString();
+
                 Intent intent = new Intent(CheckoutActivity.this, InformationConfirmation.class);
                 intent.putExtra("selectedItems",selectedItems);
                 intent.putExtra("tax", taxAmt);
                 intent.putExtra("total",totalWithTip);
                 intent.putExtra("tipAmount",tipAmount);
                 intent.putExtra("subtotal", subtotal);
+                intent.putExtra("deliveryMethod", deliveryMethod);
                 startActivity(intent);
             }
         });

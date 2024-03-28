@@ -133,12 +133,14 @@
         android:id="@+id/AccCreateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button_border"
         android:text="@string/create_account"
         android:textSize="20sp"
         app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="484dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/retypePwdInput" />
 
     <TextView
         android:id="@+id/passwordHintTextView"
