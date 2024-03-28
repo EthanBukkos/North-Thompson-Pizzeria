@@ -108,5 +108,8 @@
     <string name="create_accountBtn">Create Account</string>
     <string name="profileBtn">Profile</string>
     <string name="menuSubmitOrderBtn">Submit Order</string>
+    <string name="menuSmall">Small</string>
+    <string name="menuMedium">Medium</string>
+    <string name="menuLarge">Large</string>
 
 </resources>

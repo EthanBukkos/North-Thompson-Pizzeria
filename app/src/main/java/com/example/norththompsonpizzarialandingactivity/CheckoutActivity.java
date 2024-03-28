@@ -14,29 +14,36 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CheckoutActivity extends AppCompatActivity {
 
-    TextView customPizza;
+    TextView totalTv;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+        double totalAmount = getIntent().getDoubleExtra("totalCost",0.0);
+
 
         final SeekBar tipSeekBar = findViewById(R.id.tip_slider);
         final TextView tipPercentageTextView = findViewById(R.id.tip_percentage_display);
         final TextView totalWithTipTextView = findViewById(R.id.total_with_tip);
 
+        // set default to 0 on seekbar to match the default value of 0 on textView
+        tipSeekBar.setProgress(0);
+
+        // setDefault value's for the textViews
+        tipPercentageTextView.setText("Tip Percentage: 0%");
+        totalWithTipTextView.setText("Total (with Tip): $" + totalAmount);
+
         tipSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
+                           double tipAmount = (progress / 100.0) * totalAmount;
+                double totalWithTip = totalAmount + tipAmount;
                 tipPercentageTextView.setText("Tip Percentage: " + progress + "%");
-
-
-                double subtotal = calculateSubtotal(); // Implement your method to calculate subtotal
-                double tipAmount = (progress / 100.0) * subtotal;
-                double totalWithTip = subtotal + tipAmount;
-                totalWithTipTextView.setText("Total (with Tip): $" + totalWithTip);
+                totalWithTipTextView.setText(String.format("Total (with Tip): $%.2f", totalWithTip));
             }
 
             @Override
@@ -79,8 +86,4 @@ public class CheckoutActivity extends AppCompatActivity {
         });
     }
 
-    private double calculateSubtotal() {
-
-        return 0.0;
-    }
 }
