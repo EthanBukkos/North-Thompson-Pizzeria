@@ -29,6 +29,22 @@
             android:text="Tip Percentage: 5%"
             android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/totalBeforeTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Total Before Tip: "
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tipAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Tip Amount:: "
+            android:textSize="16sp"/>
+
 
         <TextView
             android:id="@+id/total_with_tip"
@@ -58,15 +74,6 @@
                 android:layout_weight="1"
                 android:text="Return to Menu" />
 
-            <Button
-                android:id="@+id/cancel_order_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_border"
-                android:layout_margin="3dp"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:text="Cancel Order" />
 
             <Button
                 android:id="@+id/checkout_button"
@@ -76,7 +83,7 @@
                 android:textStyle="bold"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:text="Checkout" />
+                android:text="@string/completeOrder" />
 
         </LinearLayout>
 

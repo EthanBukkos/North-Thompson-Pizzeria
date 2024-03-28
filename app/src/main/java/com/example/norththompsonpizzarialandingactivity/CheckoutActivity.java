@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CheckoutActivity extends AppCompatActivity {
 
-    TextView totalTv;
+    TextView totalTv,totalBefTip, tipAmt;
     Intent intent;
 
     @Override
@@ -25,9 +25,17 @@ public class CheckoutActivity extends AppCompatActivity {
         double totalAmount = getIntent().getDoubleExtra("totalCost",0.0);
 
 
+
         final SeekBar tipSeekBar = findViewById(R.id.tip_slider);
         final TextView tipPercentageTextView = findViewById(R.id.tip_percentage_display);
         final TextView totalWithTipTextView = findViewById(R.id.total_with_tip);
+        totalBefTip = findViewById(R.id.totalBeforeTip);
+        tipAmt = findViewById(R.id.tipAmount);
+
+        tipAmt.setText("Tip Amount: $0.00");
+
+        totalBefTip.setText(String.format("Total: $%.2f",totalAmount));
+
 
         // set default to 0 on seekbar to match the default value of 0 on textView
         tipSeekBar.setProgress(0);
@@ -40,9 +48,10 @@ public class CheckoutActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                           double tipAmount = (progress / 100.0) * totalAmount;
+                double tipAmount = (progress / 100.0) * totalAmount;
                 double totalWithTip = totalAmount + tipAmount;
                 tipPercentageTextView.setText("Tip Percentage: " + progress + "%");
+                tipAmt.setText(String.format("Tip Amount: $%.2f", tipAmount));
                 totalWithTipTextView.setText(String.format("Total (with Tip): $%.2f", totalWithTip));
             }
 
@@ -55,7 +64,6 @@ public class CheckoutActivity extends AppCompatActivity {
 
 
         Button returnToMenuButton = findViewById(R.id.return_to_menu_button);
-        Button cancelOrderButton = findViewById(R.id.cancel_order_button);
         Button checkoutButton = findViewById(R.id.checkout_button);
 
 
@@ -65,13 +73,6 @@ public class CheckoutActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent = new Intent(CheckoutActivity.this,Navigation_Main.class);
                 startActivity(intent);
-
-            }
-        });
-
-        cancelOrderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
             }
         });
