@@ -63,6 +63,13 @@ public class AccountCreation extends AppCompatActivity {
                 String password = pwdEditText.getText().toString().trim();
                 String retypePassword = retypePwdEditText.getText().toString().trim();
                 String phoneNumber = phoneEditText.getText().toString().trim();
+                String phonePattern = "^\\+1\\d{10}$";
+
+                if (!phoneNumber.matches(phonePattern)) {
+                    Toast.makeText(AccountCreation.this, "Please user correct phone number format.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Check if the passwords match
                 if (!password.equals(retypePassword)) {
