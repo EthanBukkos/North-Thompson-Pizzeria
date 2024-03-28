@@ -55,6 +55,11 @@
         <activity
             android:name=".PostReviews"
             android:exported="false" />
+
+        <activity
+            android:name=".Total"
+            android:exported="false"/>
+
         <activity
             android:name=".ContactUs"
             android:exported="false"

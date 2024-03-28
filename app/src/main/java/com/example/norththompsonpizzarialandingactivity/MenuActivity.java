@@ -143,10 +143,10 @@ public class MenuActivity extends AppCompatActivity {
             Toast.makeText(this,"Please select an Item before Submitting your Order!",Toast.LENGTH_SHORT).show();
             return;
         }
-//        Intent intent = new Intent(MenuActivity.this, Total.class);
-//
-//        intent.putExtra("selectedItems", selectedItems);
-//        startActivity(intent);
+        Intent intent = new Intent(MenuActivity.this, Total.class);
+
+        intent.putExtra("selectedItems", selectedItems);
+        startActivity(intent);
 
         Toast.makeText(this,"Order Submitted", Toast.LENGTH_SHORT).show();
     }

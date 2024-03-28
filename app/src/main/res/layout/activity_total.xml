@@ -69,21 +69,11 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/previous_button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_border"
-                    android:layout_margin="1dp"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:text="Previous" />
-
-                <Button
                     android:id="@+id/return_to_menu_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_border"
-                    android:layout_margin="1dp"
+                    android:layout_margin="3dp"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:text="Return to Menu" />
@@ -93,9 +83,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_border"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="2dp"
+                    android:layout_margin="3dp"
+
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:text="Continue to Checkout" />
