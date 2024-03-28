@@ -39,6 +39,11 @@ public class Total extends AppCompatActivity {
         ArrayList<MenuItemModel> selectedItems = (ArrayList<MenuItemModel>) getIntent().getSerializableExtra("selectedItems");
         menuAdapter = new MenuAdapter(this, selectedItems);
 
+        // make sure the selection isnt empty
+        if (!selectedItems.isEmpty()) {
+            menuAdapter.setCurrentItem(selectedItems.get(0));
+        }
+
         recyclerView.setAdapter(menuAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -52,6 +57,10 @@ public class Total extends AppCompatActivity {
         taxTv.setText(String.format("Tax (13%%): $%.2f", tax));
         totalTv.setText(String.format("Total: $%.2f", total));
 
+        // set these to disabled so the user cant adjust the quantity or size on this screen.
+        menuAdapter.setQuantityPickerEnabled(false);
+        menuAdapter.setSizeSelectorEnabled(false);
+
         returnToMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,17 +73,17 @@ public class Total extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(Total.this, CheckoutActivity.class);
+                intent.putExtra("totalCost", total);
                 startActivity(intent);
             }
         });
 
     }
-
     // calculate the subtotal amount based on quantities and pizza size
     private double calculateSubtotal(ArrayList<MenuItemModel> selectedItems) {
         double subtotal = 0.0;
         for (MenuItemModel item : selectedItems) {
-            subtotal += item.getSmlPrice() * item.getQuantity();
+            subtotal += item.getTotalPrice();
         }
         return subtotal;
     }

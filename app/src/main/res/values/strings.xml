@@ -117,5 +117,8 @@
     <string name="expiry">Expiry:</string>
     <string name="credit_card">Credit Card #:</string>
     <string name="cvc">CVC:</string>
+    <string name="menuSmall">Small</string>
+    <string name="menuMedium">Medium</string>
+    <string name="menuLarge">Large</string>
 
 </resources>

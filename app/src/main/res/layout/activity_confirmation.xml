@@ -1,56 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-
-        <TextView
-            android:id="@+id/confirmation_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Your order is successfully placed!"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:layout_marginTop="32dp" />
-
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/confirmation_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="32dp"
+        android:text="Your order is successfully placed!"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/return_to_menu_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_border"
-            android:layout_margin="3dp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:text="Return to Menu" />
 
-        <Button
-            android:id="@+id/cancel_order_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_border"
-            android:layout_margin="3dp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:text="Cancel Order" />
+    <Button
+        android:id="@+id/return_to_menu_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button_border"
+        android:padding="10dp"
+        android:text="Return to Menu"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/checkout_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_border"
-            android:layout_margin="3dp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:text="Checkout" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/confirmationRecyclerView"
+        android:layout_width="409dp"
+        android:layout_height="648dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/return_to_menu_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmation_message" />
 
-    </LinearLayout>
-
-    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
