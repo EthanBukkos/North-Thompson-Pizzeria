@@ -121,5 +121,6 @@
     <string name="menuMedium">Medium</string>
     <string name="menuLarge">Large</string>
     <string name="completeOrder">Complete Order</string>
+    <string name="continue_text">Continue</string>
 
 </resources>

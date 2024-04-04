@@ -26,10 +26,11 @@ public class OrderCustomizationDriver extends AppCompatActivity
         implements ToppingAdapter.ToppingSelectionListener {
     List<SauceDataModel> sauceList;
     List<MeatDataModel> meatList;
+    ArrayList<MenuItemModel> selectedItems;
     List<VeggieDataModel> veggieList;
     Spinner sizeSpinner;
     RecyclerView recyclerView;
-    Button checkoutBtn;
+    Button continueBtn;
     TextView subtotalTextView;
 
     Intent intent = new Intent();
@@ -41,18 +42,24 @@ public class OrderCustomizationDriver extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_customization_main);
 
+        Intent intent = getIntent();
+        selectedItems = (ArrayList<MenuItemModel>) intent.getSerializableExtra("selectedItems");
+        if (selectedItems == null) {
+            selectedItems = new ArrayList<>();
+        }
+
         // Initializing UI components and data models
         setupUI();
         setupModelLists();
         setupRecyclerView();
 
         sizeSpinner.setOnItemSelectedListener(new SizeSelectionListener());
-        checkoutBtn.setOnClickListener(this::onCheckoutBtnClicked);
+        continueBtn.setOnClickListener(this::onContinueBtnClicked);
 
     }
 
     private void setupUI() {
-        checkoutBtn = findViewById(R.id.checkoutBtn);
+        continueBtn = findViewById(R.id.continueBtn);
         sizeSpinner = findViewById(R.id.sizeSpinner);
         recyclerView = findViewById(R.id.recyclerView);
         subtotalTextView = findViewById(R.id.subtotalTextView);
@@ -74,6 +81,10 @@ public class OrderCustomizationDriver extends AppCompatActivity
                 0.00, 0.00, 0.00));
         veggieList.add(new VeggieDataModel("Veggie Choices", "Tomatoes", "Peppers",
                 "Mushrooms", "Onions", 0.00, 0.00, 0.00, 0.00));
+
+        sizePrices.put("Small", 12.00);
+        sizePrices.put("Medium", 14.00);
+        sizePrices.put("Large", 18.00);
     }
 
     private void setupRecyclerView() {
@@ -119,18 +130,42 @@ public class OrderCustomizationDriver extends AppCompatActivity
         return new CustomPizza(selectedSize, selectedSauce, selectedMeats, selectedVeggies);
     }
 
-    public void onCheckoutBtnClicked(View view) {
+    public void onContinueBtnClicked(View view) {
         if (validatePizzaSelections()) {
             CustomPizza customPizza = createCustomPizza();
-            Log.d("OrderCustomizationDriver", "Pizza Created: " + customPizza.toString());
+            MenuItemModel item = convertCustomPizzaToMenuItemModel(customPizza);
 
-            intent = new Intent(OrderCustomizationDriver.this, CheckoutActivity.class);
-            intent.putExtra("customPizza", customPizza);
+            ArrayList<MenuItemModel> selectedItems = getIntent().hasExtra("selectedItems") ?
+                    (ArrayList<MenuItemModel>) getIntent().getSerializableExtra("selectedItems") :
+                    new ArrayList<>();
+
+          //  selectedItems.add(item);
+
+            Intent intent = new Intent(OrderCustomizationDriver.this, Total.class);
+            intent.putExtra("selectedItems", selectedItems);
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Please complete all pizza selections",
+            Toast.makeText(OrderCustomizationDriver.this, "Please complete all selections",
                     Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private MenuItemModel convertCustomPizzaToMenuItemModel(CustomPizza customPizza) {
+        String name = "Custom Pizza";
+        double smlPrice = 12.00;
+        double medPrice = 14.00;
+        double lrgPrice = 18.00;
+        int img = R.drawable.custom_pizza;
+        int quantity = 1;
+        String defaultSize = customPizza.getSize();
+
+
+        return new MenuItemModel(img, name, smlPrice, medPrice, lrgPrice, quantity, defaultSize);
+    }
+
+    private double customPizzaPrice(CustomPizza customPizza, String size) {
+        double price = sizePrices.getOrDefault(customPizza.getSize(), 0.0);
+        return price;
     }
 
     // Ensure the customer makes the required choices before proceeding to checkout

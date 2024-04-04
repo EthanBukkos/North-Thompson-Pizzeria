@@ -40,8 +40,10 @@ public class Total extends AppCompatActivity {
         menuAdapter = new MenuAdapter(this, selectedItems);
 
         // make sure the selection isnt empty
-        if (!selectedItems.isEmpty()) {
+        if (selectedItems != null && !selectedItems.isEmpty()) {
             menuAdapter.setCurrentItem(selectedItems.get(0));
+        } else {
+            selectedItems = new ArrayList<>();
         }
 
         recyclerView.setAdapter(menuAdapter);

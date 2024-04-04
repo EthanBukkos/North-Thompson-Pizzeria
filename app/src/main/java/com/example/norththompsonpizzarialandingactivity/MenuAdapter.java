@@ -25,12 +25,34 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
 
     private MenuItemModel currentItem;
 
+    // Interface for click listener
+    public interface onItemClickListener {
+        void onItemClick(MenuItemModel item);
+    }
+
+    // Interface for onQuantityChangedListener
+    public interface onQuantityChangeListener {
+        void onQuantityChanged(MenuItemModel item, int newQuantity);
+    }
+    private onQuantityChangeListener onQuantityChangeListener; // Initialize onQuantityChangedListener
+
+    public void setOnQuantityChangeListener(MenuAdapter.onQuantityChangeListener listener) {
+        this.onQuantityChangeListener = listener;
+    }
+
+    private onItemClickListener onItemClickListener; // Initialize click listener
+
+
+    // Click listener constructor
+    public void setOnItemClickListener(onItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
 
     // Create constructor for MenuAdapter
     MenuAdapter (Context context, ArrayList<MenuItemModel> menuArrayList) {
 
         this.context = context;
-        this.menuArrayList = menuArrayList;
+        this.menuArrayList = menuArrayList != null ? menuArrayList : new ArrayList<>();
 
     }
 
@@ -110,6 +132,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
                 menuItem.setQuantity(newVal);
                 holder.price.setText(String.format("$%.2f", menuItem.getTotalPrice()));
 
+                if (onQuantityChangeListener != null) {
+                    onQuantityChangeListener.onQuantityChanged(menuItem, newVal);
+                }
+
             }
         });
 
@@ -138,6 +164,17 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
         return menuArrayList.size();
     }
 
+    public ArrayList<MenuItemModel> getSelectedItem() {
+        ArrayList<MenuItemModel> selected = new ArrayList<>();
+
+        for (MenuItemModel item : menuArrayList) {
+            if (item.getQuantity() > 0) {
+                selected.add(item);
+            }
+        }
+        return selected;
+    }
+
     // Custom View Holder class
     public class View_Holder extends RecyclerView.ViewHolder {
 
@@ -157,6 +194,17 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.View_Holder> {
             price = itemView.findViewById(R.id.pizzaPriceTextView);
             quantityPicker = itemView.findViewById(R.id.menuItemQuantityPicker);
             sizeSelector = itemView.findViewById(R.id.sizeSelector);
+
+            // Set the click listener
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (onItemClickListener != null && position != RecyclerView.NO_POSITION) {
+                        onItemClickListener.onItemClick(menuArrayList.get(position));
+                    }
+                }
+            });
         }
     }
 

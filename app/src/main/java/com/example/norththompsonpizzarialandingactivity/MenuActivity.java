@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.type.TimeOfDay;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,8 +23,7 @@ public class MenuActivity extends AppCompatActivity {
 
     Button backBtn, signInSignOutBtn, submitOrderBtn;
     FirebaseAuth mAuth;
-
-    private MenuAdapter menuAdapter;
+    MenuAdapter menuAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,14 @@ public class MenuActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         submitOrderBtn = findViewById(R.id.submitOrderBtn);
 
-        menuAdapter = new MenuAdapter(this, menuArrayList);
+        // Initialize the MenuAdapter
+       menuAdapter = new MenuAdapter(this, menuArrayList);
+
+        recyclerView.setAdapter(menuAdapter);
+
+        // Grid layout
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         updateButtonOnUserStatus();
 
@@ -67,6 +74,16 @@ public class MenuActivity extends AppCompatActivity {
             }
                 });
 
+        // Click listener if 'Customize Pizza' is selected from the menu
+
+        menuAdapter.setOnQuantityChangeListener(new MenuAdapter.onQuantityChangeListener() {
+            @Override
+            public void onQuantityChanged(MenuItemModel item, int newQuantity)  {
+
+
+            }
+        });
+
         menuArrayList.add(new MenuItemModel(R.drawable.custom_pizza,"Customize Pizza",
                 12.00, 14.00, 18.00, 0,"Small"));
 
@@ -91,14 +108,6 @@ public class MenuActivity extends AppCompatActivity {
         menuArrayList.add(new MenuItemModel(R.drawable.bbq_chicken_pizza, "BBQ Chicken Pizza",
                 12.00, 14.00, 18.00, 0,"Small"));
 
-        // Instance of the MenuAdapter
-        MenuAdapter menuAdapter = new MenuAdapter(this, menuArrayList);
-
-        recyclerView.setAdapter(menuAdapter);
-
-        // Grid layout
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
     }
 
     private void updateButtonOnUserStatus() {
@@ -111,27 +120,36 @@ public class MenuActivity extends AppCompatActivity {
 
     // submitOrder method to add the objects and their quantity and send through an intent
     private void submitOrder() {
+        boolean isCustomPizzaSelected = false;
+        boolean itemSelected = false;
         ArrayList<MenuItemModel> selectedItems = menuAdapter.getSelectedItems();
 
-        // check to see if there is greater than 0 items selected
-        boolean zeroItemsSelected = false;
         for (MenuItemModel item : selectedItems) {
             if (item.getQuantity() > 0) {
-                zeroItemsSelected = true;
-                break;
+                itemSelected = true;
+                if ("Customize Pizza".equals(item.getName())) {
+                    isCustomPizzaSelected = true;
+                    break;
+                }
             }
         }
-        // Let user know to select an item if nothing has a quantity selected
-        if (!zeroItemsSelected) {
+
+        Intent intent;
+        if (!itemSelected) {
             Toast.makeText(this,"Please select an Item before Submitting your Order!",Toast.LENGTH_SHORT).show();
             return;
         }
-        Intent intent = new Intent(MenuActivity.this, Total.class);
+
+        if (isCustomPizzaSelected) {
+           intent = new Intent(MenuActivity.this, OrderCustomizationDriver.class);
+        } else {
+           intent = new Intent(MenuActivity.this, Total.class);
+        }
 
         intent.putExtra("selectedItems", selectedItems);
         startActivity(intent);
 
-        Toast.makeText(this,"Order Submitted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Selection added.", Toast.LENGTH_SHORT).show();
     }
 
 

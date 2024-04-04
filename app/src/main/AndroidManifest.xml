@@ -92,6 +92,9 @@
         <activity
             android:name=".ResetPassword"
             android:exported="false" />
+        <activity
+            android:name=".OrderCustomizationDriver"
+            android:exported="false" />
     </application>
 
 </manifest>
